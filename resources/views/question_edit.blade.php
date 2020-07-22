@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card mt-5">
         <div class="card-header text-center">
-            CRUD Data Pegawai - <strong>EDIT DATA</strong> - <a href="https://www.malasngoding.com/category/laravel" target="_blank">www.malasngoding.com</a>
+            Edit Question
         </div>
         <div class="card-body">
             <a href="/question" class="btn btn-primary">Kembali</a>

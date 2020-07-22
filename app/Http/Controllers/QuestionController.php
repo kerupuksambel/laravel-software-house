@@ -10,8 +10,9 @@ class QuestionController extends Controller
     //
     public function index()
     {
+        $user = \Auth::user()->id;
         $question = Question::all();
-        return view('question', ['question' => $question]);
+        return view('question', ['question' => $question, 'user' => $user]);
     }
 
     public function create()
