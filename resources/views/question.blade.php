@@ -26,7 +26,7 @@
                         <td>{{ $p->question_description }}</td>
                         <td>
                             <a href="/question/edit/{{ $p->question_id }}" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="/question/destroy/{{ $p->question_id }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     @endforeach

@@ -40,4 +40,25 @@ class QuestionController extends Controller
         $question = Question::find($id);
         return view('question_edit', ['question' => $question]);
     }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'question_title' => 'required',
+            'question_description' => 'required'
+        ]);
+
+        $question = Question::find($id);
+        $question->question_title = $request->question_title;
+        $question->question_description = $request->question_description;
+        $question->save();
+        return redirect('/question');
+    }
+
+    public function destroy($id)
+    {
+        $question = Question::find($id);
+        $question->delete();
+        return redirect('/question');
+    }
 }

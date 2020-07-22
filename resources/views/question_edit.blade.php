@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label>Deskripsi Pertanyaan</label>
-                    <textarea name="question_description" class="form-control" placeholder="Deskripsi Pertanyaan .."> {{ $pegawai->question_description }} </textarea>
+                    <textarea name="question_description" class="form-control" placeholder="Deskripsi Pertanyaan .."> {{ $question->question_description }} </textarea>
 
                     @if($errors->has('question_description'))
                     <div class="text-danger">

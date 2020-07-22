@@ -24,4 +24,5 @@ Route::get('/question', 'QuestionController@index');
 Route::get('/question/create', 'QuestionController@create');
 Route::post('/question/store', 'QuestionController@store');
 Route::get('/question/edit/{id}', 'QuestionController@edit');
-Route::put('/question/update/{id}', 'PegawaiController@update');
+Route::put('/question/update/{id}', 'QuestionController@update');
+Route::get('/question/destroy/{id}', 'QuestionController@destroy');
