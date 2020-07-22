@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CRUD Pertanyaan
+Route::get('/question', 'QuestionController@index');
+Route::get('/question/create', 'QuestionController@create');
+Route::post('/question/store', 'QuestionController@store');
