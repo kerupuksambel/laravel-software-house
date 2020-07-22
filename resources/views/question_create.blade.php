@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('question.store') }}" method="POST">
+                    <form action="/question/store" method="POST">
                         @csrf
 
                         <div class="form-group">
@@ -24,7 +24,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a class="btn btn-outline-primary" href="{{ route('question.index') }}">Kembali</a>
+                        <a class="btn btn-outline-primary" href="/question">Kembali</a>
                     </form>
                 </div>
             </div>
