@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<p>halo ini daftar pertanyaan</p>
+
 <div class="container">
     <div class="card mt-5">
         <div class="card-header text-center">
-            CRUD Data Pegawai - <a href="https://www.malasngoding.com/category/laravel" target="_blank">www.malasngoding.com</a>
+            CRUD Data Jawaban 
         </div>
         <div class="card-body">
-            <a href="/answer/create" class="btn btn-primary">Input Pegawai Baru</a>
+            <a href="/answer/create" class="btn btn-primary">Input Jawaban Baru</a>
             <br />
             <br />
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Nama</th>
-                        <th>Alamat</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
                         <th>OPSI</th>
                     </tr>
                 </thead>
