@@ -19,6 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+//CRUD Jawaban
+Route::get('/answer', 'AnswerController@index');
+Route::get('/answer/create', 'AnswerController@create');
+Route::post('/answer/store', 'AnswerController@store');
+Route::get('/answer/edit/{id}', 'AnswerController@edit');
+Route::put('/answer/update/{id}', 'AnswerController@update');
+Route::get('/answer/destroy/{id}', 'AnswerController@destroy');
+
 // CRUD Pertanyaan
 Route::get('/question', 'QuestionController@index');
 Route::get('/question/create', 'QuestionController@create');
@@ -26,3 +35,4 @@ Route::post('/question/store', 'QuestionController@store');
 Route::get('/question/edit/{id}', 'QuestionController@edit');
 Route::put('/question/update/{id}', 'QuestionController@update');
 Route::get('/question/destroy/{id}', 'QuestionController@destroy');
+
