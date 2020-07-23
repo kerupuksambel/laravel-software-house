@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<p>Halo ini form Jawaban</p>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1>Buat Pertanyaan</h1>
+            <h1>Buat Jawaban</h1>
 
             <div class="card">
                 <div class="card-body">
@@ -19,7 +18,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-form-label">Keterangan</label>
+                            <label class="col-form-label">Deksripsi</label>
                             <textarea class="ckeditor" id="answer_description" name="answer_description"></textarea>
                         </div>
 

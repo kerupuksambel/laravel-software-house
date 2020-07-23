@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card mt-5">
         <div class="card-header text-center">
-            CRUD Data Pegawai - <strong>EDIT DATA</strong> - <a href="https://www.malasngoding.com/category/laravel" target="_blank">www.malasngoding.com</a>
+            CRUD Jawaban - <strong>EDIT DATA</strong> 
         </div>
         <div class="card-body">
             <a href="/answer" class="btn btn-primary">Kembali</a>
@@ -30,8 +30,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Deskripsi Pertanyaan</label>
-                    <textarea name="answer_description" class="form-control" placeholder="Deskripsi Pertanyaan .."> {{ $answer->answer_description }} </textarea>
+                    <label>Deskripsi Jawaban</label>
+                    <textarea name="answer_description" class="form-control" placeholder="Deskripsi Jawaban .."> {{ $answer->answer_description }} </textarea>
 
                     @if($errors->has('answer_description'))
                     <div class="text-danger">
