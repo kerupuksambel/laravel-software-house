@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ThreadController@index')->name('home');
+Route::get('/detail', 'QuestionController@detail')->name('detail');
 
 
 Route::middleware('auth')->group(function(){

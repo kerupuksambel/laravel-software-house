@@ -12,7 +12,7 @@ class QuestionController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $question = Question::where('id', $user);
+        $question = Question::where('user_id', $user)->get();
         return view('question', ['question' => $question, 'user' => $user]);
     }
 

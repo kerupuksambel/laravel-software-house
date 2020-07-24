@@ -27,7 +27,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="{{ route('home') }}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
       </li>
     </ul>
   </nav>
@@ -40,7 +43,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Welcome, <b>{{ auth()->user()->name }}</b></a>
+          <a class="d-block">Welcome, <b>{{ auth()->user()->name }}</b></a>
         </div>
       </div>
 
@@ -48,13 +51,13 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{[ route('answer.index') }}" class="nav-link">
+            <a href="{{ route('answer.index') }}" class="nav-link">
               <i class="nav-icon fas fa-check"></i>
               <p>Jawaban Anda</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{[ route('question.index') }}" class="nav-link">
+            <a href="{{ route('question.index') }}" class="nav-link">
               <i class="nav-icon fas fa-question"></i>
               <p>Pertanyaan Anda</p>
             </a>

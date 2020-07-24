@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header text-center">
-            Daftar Pertanyaan
+            Pertanyaan Anda
         </div>
         <div class="card-body">
             <a href="/question/create" class="btn btn-primary">Tambah Pertanyaan Baru</a>
@@ -14,9 +14,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>

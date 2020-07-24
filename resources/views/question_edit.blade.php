@@ -2,16 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="card mt-5">
-        <div class="card-header text-center">
-            Edit Question
+    <div class="card">
+        <div class="card-header">
+            Edit Pertanyaan
         </div>
         <div class="card-body">
-            <a href="/question" class="btn btn-primary">Kembali</a>
-            <br />
-            <br />
-
-
             <form method="post" action="/question/update/{{ $question->question_id }}">
 
                 {{ csrf_field() }}
