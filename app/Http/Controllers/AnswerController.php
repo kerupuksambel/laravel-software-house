@@ -28,6 +28,7 @@ class AnswerController extends Controller
 
         Answer::create([
             'answer_id' => 1,
+            'question_id' => 1,
             'user_id' => 1,
             'answer_title' => $request->answer_title,
             'answer_description' => $request->answer_description

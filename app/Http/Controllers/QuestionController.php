@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Auth;
 
 class QuestionController extends Controller
 {
     //
     public function index()
     {
-        $user = \Auth::user()->id;
-        $question = Question::all();
+        $user = Auth::user()->id;
+        $question = Question::where('id', $user);
         return view('question', ['question' => $question, 'user' => $user]);
     }
 
@@ -28,8 +29,7 @@ class QuestionController extends Controller
         ]);
 
         Question::create([
-            'question_id' => 1,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'question_title' => $request->question_title,
             'question_description' => $request->question_description
         ]);

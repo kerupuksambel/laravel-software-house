@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 
@@ -14,9 +14,9 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Judul</th>
-                        <th>Deskripsi</th>
-                        <th>OPSI</th>
+                        <th>Pertanyaan</th>
+                        <th>Jawaban</th>
+                        <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@
                         <td>{{ $p->answer_title }}</td>
                         <td>{{ $p->answer_description }}</td>
                         <td>
-                            <a href="/answer/edit/{{ $p->answer_id }}" class="btn btn-warning">Edit</a>
+                            <a href="/answer/edit/{{ $p->answer_id }}" class="btn btn-primary">Edit</a>
                             <a href="/answer/destroy/{{ $p->answer_id }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
