@@ -26,3 +26,5 @@ Route::post('/question/store', 'QuestionController@store');
 Route::get('/question/edit/{id}', 'QuestionController@edit');
 Route::put('/question/update/{id}', 'QuestionController@update');
 Route::get('/question/destroy/{id}', 'QuestionController@destroy');
+
+Route::get('/question/search', 'QuestionController@search');
