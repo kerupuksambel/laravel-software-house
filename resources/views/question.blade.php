@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<p>halo ini daftar pertanyaan</p>
 <div class="container">
     <div class="card mt-5">
         <div class="card-header text-center">
-            List of Questions
+            Daftar Pertanyaan
         </div>
         <div class="card-body">
             <form action="/question/search" method="GET">
@@ -13,13 +12,13 @@
                 <input type="submit" value="SEARCH">
             </form>
             <br><br><br>
-            <a href="/question/create" class="btn btn-primary">Add New Question!</a>
+            <a href="/question/create" class="btn btn-primary">Tambah Pertanyaan Baru/a>
+
             <br />
             <br />
             <!-- <table class="table table-bordered table-hover table-striped"> -->
             <!-- <thead>
                     <tr>
-                        <th>User ID</th>
                         <th>ID</th>
                         <th>Title</th>
                         <th>Description</th>
@@ -61,6 +60,7 @@
 
             {{ $question->links() }}
             </tbody>
+
             </table>
         </div>
     </div>

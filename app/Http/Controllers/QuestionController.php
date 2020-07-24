@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class QuestionController extends Controller
 {
@@ -25,6 +26,8 @@ class QuestionController extends Controller
             ->orWhere('question_description', 'LIKE', '%' . $search . '%')
             ->orderBy('updated_at', 'desc')
             ->paginate(2);
+//         $user = Auth::user()->id;
+//         $question = Question::where('id', $user);
 
         return view('question', ['question' => $question, 'user' => $user]);
     }
@@ -42,8 +45,7 @@ class QuestionController extends Controller
         ]);
 
         Question::create([
-            'question_id' => 1,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'question_title' => $request->question_title,
             'question_description' => $request->question_description
         ]);
