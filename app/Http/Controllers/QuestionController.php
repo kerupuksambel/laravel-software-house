@@ -13,7 +13,8 @@ class QuestionController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $question = Question::orderBy('updated_at', 'desc')->paginate(2);
+        $question = Question::paginate(2);
+        // ->orderBy('updated_at', 'desc')
         return view('question', ['question' => $question, 'user' => $user]);
     }
 
@@ -24,11 +25,10 @@ class QuestionController extends Controller
 
         $question = Question::where('question_title', 'LIKE', '%' . $search . '%')
             ->orWhere('question_description', 'LIKE', '%' . $search . '%')
-            ->orderBy('updated_at', 'desc')
             ->paginate(2);
-//         $user = Auth::user()->id;
-//         $question = Question::where('id', $user);
-
+        //         $user = Auth::user()->id;
+        //         $question = Question::where('id', $user);
+        // ->orderBy('updated_at', 'desc')
         return view('question', ['question' => $question, 'user' => $user]);
     }
 
@@ -77,5 +77,12 @@ class QuestionController extends Controller
         $question = Question::find($id);
         $question->delete();
         return redirect('/question');
+    }
+
+    public function sortbyupdated()
+    {
+        $user = Auth::user()->id;
+        $question = Question::orderBy('updated_at', 'desc')->paginate(2);
+        return view('question', ['question' => $question, 'user' => $user]);
     }
 }
