@@ -1,17 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
-    <div class="card mt-5">
-        <div class="card-header text-center">
-            CRUD Data Pegawai - <strong>EDIT DATA</strong> - <a href="https://www.malasngoding.com/category/laravel" target="_blank">www.malasngoding.com</a>
+    <div class="card">
+        <div class="card-header">
+            Edit Pertanyaan
         </div>
         <div class="card-body">
-            <a href="/question" class="btn btn-primary">Kembali</a>
-            <br />
-            <br />
-
-
             <form method="post" action="/question/update/{{ $question->question_id }}">
 
                 {{ csrf_field() }}

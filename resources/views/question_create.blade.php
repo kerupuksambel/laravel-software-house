@@ -1,35 +1,47 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<p>Halo ini form pertanyaan</p>
-
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Buat Pertanyaan</h1>
+    <div class="card">
+        <div class="card-header">
+            Tambah Pertanyaan
+        </div>
+        <div class="card-body">
+            <form method="post" action="/question/store">
 
-            <div class="card">
-                <div class="card-body">
-                    <form action="/question/store" method="POST">
-                        @csrf
+                {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <label>Judul</label>
-                            <input type="text" class="form-control" name="question_title">
-                        </div>
+                <div class="form-group">
+                    <label>Judul Pertanyaan</label>
+                    <input type="text" name="question_title" class="form-control" placeholder="Judul Pertanyaan" value="">
 
-                        <div class="form-group">
-                            <label class="col-form-label">Keterangan</label>
-                            <textarea class="ckeditor" id="question_description" name="question_description"></textarea>
-                        </div>
+                    @if($errors->has('question_title'))
+                    <div class="text-danger">
+                        {{ $errors->first('question_title')}}
+                    </div>
+                    @endif
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <a class="btn btn-outline-primary" href="/question">Kembali</a>
-                    </form>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label>Deskripsi Pertanyaan</label>
+                    <textarea name="question_description" class="form-control" placeholder="Deskripsi Pertanyaan"></textarea>
+
+                    @if($errors->has('question_description'))
+                    <div class="text-danger">
+                        {{ $errors->first('question_description')}}
+                    </div>
+                    @endif
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Simpan">
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>
-
 @endsection

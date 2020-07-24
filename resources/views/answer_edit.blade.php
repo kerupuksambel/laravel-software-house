@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -8,10 +8,6 @@
         </div>
         <div class="card-body">
             <a href="/answer" class="btn btn-primary">Kembali</a>
-            <br />
-            <br />
-
-
             <form method="post" action="/answer/update/{{ $answer->answer_id }}">
 
                 {{ csrf_field() }}

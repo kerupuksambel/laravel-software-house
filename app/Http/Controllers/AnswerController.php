@@ -10,9 +10,15 @@ class AnswerController extends Controller
 {
     public function index()
     {
+
        
         $answer = Answer::all();
         $answer = Answer::orderBy('updated_at', 'desc')->paginate(2);
+
+        $answer = Answer::where('answer.user_id', auth()->user()->id)
+        ->join('question', 'question.question_id', 'answer.question_id')
+        ->get();
+
         return view('answer', ['answer' => $answer]);
     }
 
@@ -33,7 +39,7 @@ class AnswerController extends Controller
         return view('answer_create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $this->validate($request, [
             'answer_title' => 'required',
@@ -41,9 +47,14 @@ class AnswerController extends Controller
         ]);
 
         Answer::create([
+
             'answer_id' => 1,
             'answer_id' => 1,
             'user_id' => 1,
+
+            'question_id' => $id,
+            'user_id' => auth()->user()->id,
+
             'answer_title' => $request->answer_title,
             'answer_description' => $request->answer_description
         ]);

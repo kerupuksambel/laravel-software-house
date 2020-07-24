@@ -1,34 +1,47 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Buat Jawaban</h1>
+    <div class="card">
+        <div class="card-header">
+            Tambah Jawaban
+        </div>
+        <div class="card-body">
+            <form method="post" action="/answer/store">
 
-            <div class="card">
-                <div class="card-body">
-                    <form action="/answer/store" method="POST">
-                        {{csrf_field()}}
+                {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <label>Judul</label>
-                            <input type="text" class="form-control" name="answer_title">
-                        </div>
+                <div class="form-group">
+                    <label>Judul Jawaban</label>
+                    <input type="text" name="answer_title" class="form-control" placeholder="Judul Jawaban" value="">
 
-                        <div class="form-group">
-                            <label class="col-form-label">Deksripsi</label>
-                            <textarea class="ckeditor" id="answer_description" name="answer_description"></textarea>
-                        </div>
+                    @if($errors->has('answer_title'))
+                    <div class="text-danger">
+                        {{ $errors->first('answer_title')}}
+                    </div>
+                    @endif
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <a class="btn btn-outline-primary" href="/answer">Kembali</a>
-                    </form>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label>Deskripsi Jawaban</label>
+                    <textarea name="answer_description" class="form-control" placeholder="Deskripsi Jawaban"></textarea>
+
+                    @if($errors->has('answer_description'))
+                    <div class="text-danger">
+                        {{ $errors->first('answer_description')}}
+                    </div>
+                    @endif
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Simpan">
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>
-
 @endsection
