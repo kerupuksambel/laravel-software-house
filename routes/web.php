@@ -12,21 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
-
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'ThreadController@index')->name('home');
-Route::get('/detail', 'QuestionController@detail')->name('detail');
+Route::get('/question/{question_id}', 'ThreadController@detail')->name('detail');
 
 
 Route::middleware('auth')->group(function(){
     //CRUD Jawaban
     Route::prefix('answer')->name('answer.')->group(function(){
         Route::get('/', 'AnswerController@index')->name('index');
-        Route::get('/create', 'AnswerController@create')->name('create');
-        Route::post('/store', 'AnswerController@store')->name('store');
+        Route::get('/create/{question_id}', 'AnswerController@create')->name('create');
+        Route::post('/store/{question_id}', 'AnswerController@store')->name('store');
         Route::get('/edit/{id}', 'AnswerController@edit')->name('edit');
         Route::put('/update/{id}', 'AnswerController@update')->name('update');
         Route::get('/destroy/{id}', 'AnswerController@destroy')->name('destroy');

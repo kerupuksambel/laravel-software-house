@@ -22,9 +22,8 @@
                 <tbody>
                     @foreach($answer as $p)
                     <tr>
-                        <td></td>
                         <td>
-                            <a href="{{ route('detail', ['question_id', $p->question_id]) }}">
+                            <a href="{{ route('detail', ['question_id' => $p->question_id]) }}">
                                 {{ $p->question_title }}
                             </a>
                         </td>

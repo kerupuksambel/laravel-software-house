@@ -16,12 +16,12 @@ class AnswerController extends Controller
         return view('answer', ['answer' => $answer]);
     }
 
-    public function create()
+    public function create($question_id)
     {
-        return view('answer_create');
+        return view('answer_create', compact('question_id'));
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request, $question_id)
     {
         $this->validate($request, [
             'answer_title' => 'required',
@@ -29,7 +29,7 @@ class AnswerController extends Controller
         ]);
 
         Answer::create([
-            'question_id' => $id,
+            'question_id' => $question_id,
             'user_id' => auth()->user()->id,
             'answer_title' => $request->answer_title,
             'answer_description' => $request->answer_description

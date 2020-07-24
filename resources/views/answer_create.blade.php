@@ -7,7 +7,7 @@
             Tambah Jawaban
         </div>
         <div class="card-body">
-            <form method="post" action="/answer/store">
+            <form method="post" action="{{ route('answer.store', ['question_id' => $question_id]) }}">
 
                 {{ csrf_field() }}
 
