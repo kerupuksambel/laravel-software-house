@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-center">
             Jawaban Anda
         </div>
         <div class="card-body">

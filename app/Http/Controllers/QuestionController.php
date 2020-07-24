@@ -12,14 +12,14 @@ class QuestionController extends Controller
     //
     public function index()
     {
-        $user = \Auth::user()->id;
+        $user = Auth::user()->id;
         $question = Question::orderBy('updated_at', 'desc')->paginate(2);
         return view('question', ['question' => $question, 'user' => $user]);
     }
 
     public function search(Request $request)
     {
-        $user = \Auth::user()->id;
+        $user = Auth::user()->id;
         $search = $request->search;
 
         $question = Question::where('question_title', 'LIKE', '%' . $search . '%')

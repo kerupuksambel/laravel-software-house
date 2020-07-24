@@ -40,8 +40,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/edit/{id}', 'QuestionController@edit')->name('edit');
         Route::put('/update/{id}', 'QuestionController@update')->name('update');
         Route::get('/destroy/{id}', 'QuestionController@destroy')->name('destroy');
-      
-        Route::get('/question/search', 'QuestionController@search');
+        Route::get('/search', 'QuestionController@search')->name('search');
     });
 });
 
