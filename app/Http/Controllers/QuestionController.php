@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class QuestionController extends Controller
@@ -11,8 +12,23 @@ class QuestionController extends Controller
     //
     public function index()
     {
-        $user = Auth::user()->id;
-        $question = Question::where('user_id', $user)->get();
+        $user = \Auth::user()->id;
+        $question = Question::orderBy('updated_at', 'desc')->paginate(2);
+        return view('question', ['question' => $question, 'user' => $user]);
+    }
+
+    public function search(Request $request)
+    {
+        $user = \Auth::user()->id;
+        $search = $request->search;
+
+        $question = Question::where('question_title', 'LIKE', '%' . $search . '%')
+            ->orWhere('question_description', 'LIKE', '%' . $search . '%')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(2);
+//         $user = Auth::user()->id;
+//         $question = Question::where('id', $user);
+
         return view('question', ['question' => $question, 'user' => $user]);
     }
 
