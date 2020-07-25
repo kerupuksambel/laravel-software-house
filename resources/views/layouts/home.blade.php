@@ -11,7 +11,8 @@
             <ul class="navbar-nav">
               <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('home') }}" class="nav-link">Home</a>
-              </li>
+            </li>
+            @if (auth()->user())
               <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('question.index') }}" class="nav-link">Pertanyaan Anda</a>
               </li>
@@ -19,13 +20,13 @@
                 <a href="{{ route('answer.index') }}" class="nav-link">Jawaban Anda</a>
               </li>
             </ul>
-            @if (auth()->user())
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="{{ route('logout') }}" class="nav-link">Logout</a>
                     </li>
                 </ul>
             @else
+            </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="{{ route('login') }}" class="nav-link">Login</a>

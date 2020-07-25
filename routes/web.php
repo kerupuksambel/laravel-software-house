@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'AnswerController@edit')->name('edit');
         Route::put('/update/{id}', 'AnswerController@update')->name('update');
         Route::get('/destroy/{id}', 'AnswerController@destroy')->name('destroy');
+        Route::get('/search', 'AnswerController@search')->name('search');
+        Route::get('/sortbyupdated', 'AnswerController@sortbyupdated')->name('sortbyupdated');
     });
 
     // CRUD Pertanyaan

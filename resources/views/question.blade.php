@@ -24,7 +24,6 @@
             <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Judul</th>
                         <th>Deskripsi</th>
                         <th>Aksi</th>
@@ -33,8 +32,9 @@
                 <tbody>
                     @foreach($question as $p)
                     <tr>
-                        <td>{{ $p->question_id }}</td>
-                        <td>{{ $p->question_title }}</td>
+                        <td>
+                            <a href="{{ route('detail', ['question_id' => $p->question_id]) }}">{{ $p->question_title }}</a>
+                        </td>
                         <td>{{ $p->question_description }}</td>
                         <td>
                             <a href="/question/edit/{{ $p->question_id }}" class="btn btn-primary">Edit</a>

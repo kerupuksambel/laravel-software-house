@@ -32,10 +32,10 @@ class ThreadController extends Controller
 
         $method = $request->sort;
         $question = $question->appends(Input::except('page'));
-
+        
         return view('homepage.index', compact('question', 'method'));
     }
-
+    
     public function detail($question_id)
     {
         $question = Question::where('question_id', $question_id)
@@ -46,10 +46,10 @@ class ThreadController extends Controller
         ->join('users', 'users.id', 'answer.user_id')
         ->selectRaw('answer.*, users.name, users.id')
         ->get();
-
+        
         return view('homepage.detail', compact('question', 'answers'));
     }
-
+    
     public function search(Request $request)
     {
         if(!is_null($request->q)){
@@ -59,7 +59,7 @@ class ThreadController extends Controller
             ->selectRaw('question.*, users.name')
             ->orderBy('question.updated_at', 'desc')
             ->paginate(3);
-
+            
             foreach ($question as $key => $q) {
                 $query = Answer::where('question_id', $q->question_id);
                 $q->jumlah = $query->count();
@@ -67,10 +67,11 @@ class ThreadController extends Controller
                     $q->last_reply = $query->orderBy('created_at', 'desc')->first();
                 }
             }
-
+            
+            $question = $question->appends(Input::except('page'));
             return view('homepage.search', compact('question', 'term'));
         }else{
-            return redirect()->route('/');
+            return redirect()->route('home');
         }
     }
 }
