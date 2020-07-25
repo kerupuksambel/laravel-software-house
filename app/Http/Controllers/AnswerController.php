@@ -12,16 +12,16 @@ class AnswerController extends Controller
     {
         $answer = Answer::all();
         $answer = Answer::where('answer.user_id', auth()->user()->id)
-        ->join('question', 'question.question_id', 'answer.question_id')
-        // ->orderBy('updated_at', 'desc')
-        ->paginate(2);
+            ->join('question', 'question.question_id', 'answer.question_id')
+            // ->orderBy('updated_at', 'desc')
+            ->paginate(2);
 
         return view('answer', ['answer' => $answer]);
     }
 
     public function search(Request $request)
     {
-        
+
         $search = $request->search;
 
         $answer = Answer::where('answer_title', 'LIKE', '%' . $search . '%')
@@ -31,7 +31,7 @@ class AnswerController extends Controller
 
         return view('answer', ['answer' => $answer]);
     }
-    
+
     public function create($question_id)
     {
         return view('answer_create', compact('question_id'));
@@ -78,5 +78,12 @@ class AnswerController extends Controller
         $answer = Answer::find($id);
         $answer->delete();
         return redirect('/answer');
+    }
+
+    public function sortbyupdated()
+    {
+        $user = Auth::user()->id;
+        $answer = Question::orderBy('updated_at', 'desc')->paginate(2);
+        return view('answer', ['answer' => $answer, 'user' => $user]);
     }
 }
