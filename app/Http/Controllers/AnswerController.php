@@ -4,19 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnswerController extends Controller
 {
-    //
     public function index()
     {
+
+       
+        $answer = Answer::all();
+        $answer = Answer::orderBy('updated_at', 'desc')->paginate(2);
+
         $answer = Answer::where('answer.user_id', auth()->user()->id)
         ->join('question', 'question.question_id', 'answer.question_id')
         ->get();
+
         return view('answer', ['answer' => $answer]);
     }
 
-    public function create($question_id)
+    public function search(Request $request)
+    {
+        
+        $search = $request->search;
+
+        $answer = Answer::where('answer_title', 'LIKE', '%' . $search . '%')
+            ->orWhere('answer_description', 'LIKE', '%' . $search . '%')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(2);
+
+        return view('answer', ['answer' => $answer]);
+    }
+    
+    public function create()
     {
         return view('answer_create', compact('question_id'));
     }

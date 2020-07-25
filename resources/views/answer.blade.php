@@ -10,6 +10,11 @@
         <div class="card-body">
             <a href="/answer/create" class="btn btn-primary">Input Jawaban Baru</a>
             <br />
+            <p>Cari Jawaban :</p>
+            <form action="/answer/search" method="GET">
+                <input type="text" name="search" placeholder="Cari Jawaban .." value="{{ old('search') }}">
+                <input type="submit" value="CARI">
+            </form>
             <br />
             <table class="table table-bordered table-hover table-striped">
                 <thead>
@@ -36,6 +41,8 @@
                     @endforeach
                 </tbody>
             </table>
+            <br/>
+            {{ $answer->links() }}
         </div>
     </div>
 </div>
