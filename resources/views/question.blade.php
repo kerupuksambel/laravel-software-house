@@ -10,6 +10,7 @@
             <div class="row pb-3">
                 <div class="col-md-6">
                     <a href="/question/create" class="btn btn-primary">Tambah Pertanyaan Baru</a>
+                    <a href="/question/sortbyupdated" class="btn btn-secondary">Sort by Date</a>
                 </div>
                 <div class="col-md-6">
                     <form action="{{ route('question.search') }}" class="pull-right" method="GET">

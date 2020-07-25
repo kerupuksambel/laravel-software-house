@@ -22,9 +22,9 @@ Route::get('/detail/{question_id}', 'ThreadController@detail')->name('detail');
 Route::get('/search', 'ThreadController@search')->name('search');
 
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     //CRUD Jawaban
-    Route::prefix('answer')->name('answer.')->group(function(){
+    Route::prefix('answer')->name('answer.')->group(function () {
         Route::get('/', 'AnswerController@index')->name('index');
         Route::get('/create/{question_id}', 'AnswerController@create')->name('create');
         Route::post('/store/{question_id}', 'AnswerController@store')->name('store');
@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function(){
         Route::put('/update/{id}', 'AnswerController@update')->name('update');
         Route::get('/destroy/{id}', 'AnswerController@destroy')->name('destroy');
     });
-    
+
     // CRUD Pertanyaan
-    Route::prefix('question')->name('question.')->group(function(){
+    Route::prefix('question')->name('question.')->group(function () {
         Route::get('/', 'QuestionController@index')->name('index');
         Route::get('/create', 'QuestionController@create')->name('create');
         Route::post('/store', 'QuestionController@store')->name('store');
@@ -42,7 +42,6 @@ Route::middleware('auth')->group(function(){
         Route::put('/update/{id}', 'QuestionController@update')->name('update');
         Route::get('/destroy/{id}', 'QuestionController@destroy')->name('destroy');
         Route::get('/search', 'QuestionController@search')->name('search');
+        Route::get('/sortbyupdated', 'QuestionController@sortbyupdated')->name('sortbyupdated');
     });
 });
-
-
