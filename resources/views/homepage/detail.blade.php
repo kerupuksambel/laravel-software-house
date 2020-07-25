@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('content')
-    <div class="card mb-3">
+    <div class="card mb-3" id="answer-card">
         <div class="card-body">
             <h5 class="card-title">{{ $question->question_title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ $question->name }}</h6>
@@ -10,8 +10,8 @@
                 <div class="text-muted">Posted at {{ $question->updated_at }}</div>
             </div>
             @if (auth()->user() && auth()->user()->id == $question->id)
-                <a href="#" class="card-link">Edit</a>
-                <a href="#" class="card-link">Delete</a>            
+                <a href="{{ route('question.edit', ['id' => $question->question_id]) }}" class="card-link">Edit</a>
+                <a href="{{ route('question.destroy', ['id' => $question->question_id]) }}" class="card-link">Delete</a>
             @endif
           </div>        
     </div>
@@ -25,8 +25,8 @@
                     <div class="text-muted">Posted at {{ $answer->updated_at }}</div>
                 </div>
                 @if (auth()->user() && auth()->user()->id == $answer->id)
-                    <a href="#" class="card-link">Edit</a>
-                    <a href="#" class="card-link">Delete</a>            
+                    <a href="{{ route('answer.edit', ['id' => $answer->answer_id]) }}" class="card-link">Edit</a>
+                    <a href="{{ route('answer.destroy', ['id' => $answer->answer_id]) }}" class="card-link">Delete</a>            
                 @endif
               </div>        
         </div>

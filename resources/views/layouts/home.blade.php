@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
         <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' type="text/css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     </head>
@@ -8,9 +9,6 @@
         <nav class="main-header navbar navbar-expand bg-light navbar-light ">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-              </li>
               <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('home') }}" class="nav-link">Home</a>
               </li>
@@ -38,4 +36,5 @@
     </body>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    @yield('js')
 </html>

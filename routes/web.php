@@ -18,7 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'ThreadController@index')->name('home');
-Route::get('/question/{question_id}', 'ThreadController@detail')->name('detail');
+Route::get('/detail/{question_id}', 'ThreadController@detail')->name('detail');
+Route::get('/search', 'ThreadController@search')->name('search');
 
 
 Route::middleware('auth')->group(function(){

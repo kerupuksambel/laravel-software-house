@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="d-flex flex-wrap justify-content-between">
-    <div>
-        <a role="button" href="{{ route('question.create') }}" class="btn btn-shadow btn-wide btn-primary">
-            <span class="btn-icon-wrapper pr-2 opacity-7">
-                <i class="fa fa-plus fa-w-20"></i>
-            </span> Pertanyaan Baru
-        </a>
-    </div>
-    <div class="col-12 col-md-3 p-0 mb-3">
-        <form action="{{ route('search') }}" method="GET">
-            <input type="text" class="form-control" name="q" placeholder="Cari...">
+    <div class="col-12 p-0 mb-3">
+        <form action="{{ route('search') }}" method="GET" class="row">
+            <div class="col-md-10 mb-3">
+                <input type="text" class="form-control" name="q" placeholder="Cari..." value="{{ $term }}">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fa fas fa-search"></i>
+                </button>
+            </div>
         </form>
     </div>
 </div>
@@ -52,31 +52,5 @@
 <div class="col-md-6">
     {{ $question->links() }}
 </div>
-<div class="col-md-6 row">
-    <div class="col-md-3">
-        <b>Urutkan berdasarkan... </b>
-    </div>
-    <select id="sort" class="form-control col-md-9">
-        <option value="name" @if($method == 'name') selected @endif>Judul Pertanyaan</option>
-        <option value="date" @if($method == 'date') selected @endif>Tanggal Pertanyaan</option>
-    </select>
 </div>
-</div>
-@endsection
-
-@section('js')
-    <script>
-        $(document).ready(function(){
-            $("#sort").change(function(){
-                var sel = $(this).children("option:selected").val();
-                if(sel == 'name'){
-                    window.location = "?sort=name"
-                }else if(sel == 'date'){
-                    window.location = "?sort=date"
-                }
-            });
-
-
-        })
-    </script>
 @endsection
